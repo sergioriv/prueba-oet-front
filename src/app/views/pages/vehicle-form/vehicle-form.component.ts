@@ -20,7 +20,7 @@ import { IOwner } from 'src/app/interfaces/owner';
   styleUrl: './vehicle-form.component.scss'
 })
 export class VehicleFormComponent implements OnInit {
-  title = 'Nuevo propietario';
+  title = 'Nuevo vehículo';
   vehicleFrom: FormGroup;
   vehicleEditingid!: number;
   public errorMessage!: string;
@@ -97,7 +97,6 @@ export class VehicleFormComponent implements OnInit {
     }
       this.service.createVehicle(this.vehicleFrom.value).subscribe({
         next:() => {
-          return;
           this.router.navigate(['/pages/vehicles'])
         }
       })

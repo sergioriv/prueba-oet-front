@@ -16,7 +16,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './vehicle-list.component.css'
 })
 export class VehicleListComponent implements OnInit {
-  title = "Conductores";
+  title = "Vehículos";
   vehicles$!: Observable<ApiResponse<IVehicle[]>>;
   public errorMessage!: string;
   constructor(private service: VehicleService) {}
