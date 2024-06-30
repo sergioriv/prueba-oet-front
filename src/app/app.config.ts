@@ -12,6 +12,8 @@ import {
 import { DropdownModule, SidebarModule } from '@coreui/angular';
 import { IconSetService } from '@coreui/icons-angular';
 import { routes } from './app.routes';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { errorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -29,6 +31,7 @@ export const appConfig: ApplicationConfig = {
     ),
     importProvidersFrom(SidebarModule, DropdownModule),
     IconSetService,
-    provideAnimations()
+    provideAnimations(),
+    provideHttpClient(withInterceptors([errorHandlerInterceptor]))
   ]
 };
