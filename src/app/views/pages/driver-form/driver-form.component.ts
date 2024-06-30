@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonModule, CardBodyComponent, CardComponent, CardHeaderComponent, ColComponent, FormModule, RowComponent } from '@coreui/angular';
 import { LabelRequiredComponent } from '../../../components/label-required/label-required.component';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DriverService } from 'src/app/core/services/driver.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IDriver } from 'src/app/interfaces/driver';
 import { catchError, EMPTY } from 'rxjs';
 
 @Component({
