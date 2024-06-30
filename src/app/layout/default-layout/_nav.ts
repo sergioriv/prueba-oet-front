@@ -10,5 +10,10 @@ export const navItems: INavData[] = [
     name: 'Propietarios',
     url: '/pages/owners',
     iconComponent: { name: 'cil-people' },
+  },
+  {
+    name: 'Vehiculos',
+    url: '/pages/vehicles',
+    iconComponent: { name: 'cil-list' },
   }
 ];

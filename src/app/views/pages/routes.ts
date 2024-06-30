@@ -44,6 +44,27 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'vehicles',
+    loadComponent: () => import('./vehicle-list/vehicle-list.component').then(m => m.VehicleListComponent),
+    data: {
+      title: 'Vehiculos'
+    }
+  },
+  {
+    path: 'vehicles/create',
+    loadComponent: () => import('./vehicle-form/vehicle-form.component').then(m => m.VehicleFormComponent),
+    data: {
+      title: 'Conductor'
+    }
+  },
+  {
+    path: 'vehicles/:id',
+    loadComponent: () => import('./vehicle-form/vehicle-form.component').then(m => m.VehicleFormComponent),
+    data: {
+      title: 'Conductor'
+    }
+  },
+  {
     path: '404',
     loadComponent: () => import('./page404/page404.component').then(m => m.Page404Component),
     data: {

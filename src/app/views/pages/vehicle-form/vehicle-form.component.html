@@ -1,0 +1,86 @@
+<section>
+
+  <span class="h5">{{ title }}</span>
+
+  <c-card class="my-4">
+    <c-card-body>
+
+      <form cForm [formGroup]="vehicleFrom" (ngSubmit)="onSubmit()" id="vehicle">
+
+        @if (!vehicleEditingid) {
+        <!-- License Plate -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="license_plate">Placa<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="license_plate" onlynumber type="text" formControlName="license_plate" />
+            @if (vehicleFrom.get('license_plate')?.hasError('required') && vehicleFrom.get('license_plate')?.touched) {
+              <div cFormText>es requerido</div>
+            }
+          </c-col>
+        </c-row>
+        }
+
+        <!-- Color -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="color">Color<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="color" type="text" formControlName="color" />
+          </c-col>
+        </c-row>
+
+        <!-- Make -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="make">Marca<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="make" type="text" formControlName="make" />
+          </c-col>
+        </c-row>
+
+        <!-- Type -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="type">Tipo de vehiculo<app-label-required /></label>
+          <c-col [sm]="10">
+            <select aria-label="Seleccione un tipo de vehículo" id="type" formControlName="is_private" cSelect>
+              <option value="0">Público</option>
+              <option value="1">Particular</option>
+            </select>
+          </c-col>
+        </c-row>
+
+        <!-- Driver -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="driver">Conductor<app-label-required /></label>
+          <c-col [sm]="10">
+            <select aria-label="Seleccione un conductor" id="driver" formControlName="driver" cSelect>
+              @if (drivers$ | async; as resultObject) {
+                @for (item of resultObject.data; track item.id) {
+                  <option value="{{ item.id }}">{{ item.full_name }}</option>
+                }
+              }
+            </select>
+          </c-col>
+        </c-row>
+
+        <!-- Owner -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="owner">Propietario<app-label-required /></label>
+          <c-col [sm]="10">
+            <select aria-label="Seleccione un conductor" id="owner" formControlName="owner" cSelect>
+              @if (owners$ | async; as resultObject) {
+                @for (item of resultObject.data; track item.id) {
+                  <option value="{{ item.id }}">{{ item.full_name }}</option>
+                }
+              }
+            </select>
+          </c-col>
+        </c-row>
+
+
+        <div class="mt-3">
+          <input cButton color="primary" form="vehicle" type="submit" value="Crear">
+        </div>
+      </form>
+
+    </c-card-body>
+  </c-card>
+</section>
