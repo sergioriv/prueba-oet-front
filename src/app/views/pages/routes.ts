@@ -23,6 +23,27 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'owners',
+    loadComponent: () => import('./owner-list/owner-list.component').then(m => m.OwnerListComponent),
+    data: {
+      title: 'Propietarios'
+    }
+  },
+  {
+    path: 'owners/create',
+    loadComponent: () => import('./owner-form/owner-form.component').then(m => m.OwnerFormComponent),
+    data: {
+      title: 'Conductor'
+    }
+  },
+  {
+    path: 'owners/:id',
+    loadComponent: () => import('./owner-form/owner-form.component').then(m => m.OwnerFormComponent),
+    data: {
+      title: 'Conductor'
+    }
+  },
+  {
     path: '404',
     loadComponent: () => import('./page404/page404.component').then(m => m.Page404Component),
     data: {

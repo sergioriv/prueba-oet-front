@@ -1,0 +1,44 @@
+<c-card class="mb-4">
+  <c-card-header>
+    <div class="row align-items-center">
+      <div class="col-md-6"><span class="h5">{{ title }}</span></div>
+      <div class="col-md-6 text-end">
+        <a cButton color="primary" type="button" routerLink="/pages/owners/create">Nuevo</a>
+      </div>
+    </div>
+  </c-card-header>
+  <c-card-body>
+
+    @if (owners$ | async; as resultObject) {
+      <table [striped]="true" cTable>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Ciudad</th>
+            <th>Teléfono</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of resultObject.data; track item.id) {
+          <tr>
+            <td>{{ item.full_name }}</td>
+            <td>{{ item.address }}</td>
+            <td>{{ item.city }}</td>
+            <td>{{ item.phone }}</td>
+            <td>
+              <button routerLink="/pages/owners/{{ item.id }}" type="button" cButton color="link">Editar</button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    }
+
+    @if (errorMessage) {
+      <app-error-message [errorMessage]="errorMessage" />
+    }
+
+  </c-card-body>
+</c-card>
