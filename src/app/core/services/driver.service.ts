@@ -23,7 +23,7 @@ export class DriverService {
   }
 
   createDriver(driver: IDriver): Observable<ApiResponse<IDriver>> {
-    return this.http.post<ApiResponse<IDriver>>(`${this.urlBase}/create`, driver);
+    return this.http.post<ApiResponse<IDriver>>(`${this.urlBase}`, driver);
   }
 
   updateDriver(driver: IDriver, id: number) {
