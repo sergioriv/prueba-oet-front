@@ -77,7 +77,11 @@
 
 
         <div class="mt-3">
-          <input cButton color="primary" form="vehicle" type="submit" value="Crear">
+          @if (vehicleEditingid) {
+            <input cButton color="primary" form="vehicle" type="submit" value="Guardar">
+          } @else {
+            <input cButton color="primary" form="vehicle" type="submit" value="Crear">
+          }
         </div>
       </form>
 

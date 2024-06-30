@@ -69,7 +69,11 @@
         </c-row>
 
         <div class="mt-3">
-          <input cButton color="primary" form="driver" type="submit" value="Crear">
+          @if (driverEditingid) {
+            <input cButton color="primary" form="driver" type="submit" value="Guardar">
+          } @else {
+            <input cButton color="primary" form="driver" type="submit" value="Crear">
+          }
         </div>
       </form>
 
