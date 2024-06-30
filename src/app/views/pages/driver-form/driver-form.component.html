@@ -1,0 +1,78 @@
+<section>
+
+  <span class="h5">{{ title }}</span>
+
+  <c-card class="my-4">
+    <c-card-body>
+
+      <form cForm [formGroup]="driverFrom" (ngSubmit)="onSubmit()" id="driver">
+
+        @if (!driverEditingid) {
+        <!-- Document -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="document">Número de cédula<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="document" onlynumber type="text" formControlName="document" />
+            @if (driverFrom.get('document')?.hasError('required') && driverFrom.get('document')?.touched) {
+              <div cFormText>es requerido</div>
+            }
+          </c-col>
+        </c-row>
+        }
+
+        <!-- First Name -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="first_name">Primer nombre<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="first_name" type="text" formControlName="first_name" />
+          </c-col>
+        </c-row>
+
+        <!-- Second Name -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="second_name">Segundo nombre</label>
+          <c-col [sm]="10">
+            <input cFormControl id="second_name" type="text" formControlName="second_name" />
+          </c-col>
+        </c-row>
+
+        <!-- Last Names -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="last_names">Apellidos<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="last_names" type="text" formControlName="last_names" />
+          </c-col>
+        </c-row>
+
+        <!-- City -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="city">Ciudad<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="city" type="text" formControlName="city" />
+          </c-col>
+        </c-row>
+
+        <!-- Address -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="address">Dirección<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="address" type="text" formControlName="address" />
+          </c-col>
+        </c-row>
+
+        <!-- Phone -->
+        <c-row class="mb-4">
+          <label cLabel class="col-sm-2 form-label" for="phone">Teléfono<app-label-required /></label>
+          <c-col [sm]="10">
+            <input cFormControl id="phone" type="text" formControlName="phone" />
+          </c-col>
+        </c-row>
+
+        <div class="mt-3">
+          <input cButton color="primary" form="driver" type="submit" value="Crear">
+        </div>
+      </form>
+
+    </c-card-body>
+  </c-card>
+</section>
