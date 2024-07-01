@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment.development';
 export class VehicleService {
 
   private urlBase = `${environment.apiUrlBase}/vehicles`;
+  private reportUrl = `${environment.apiUrlBase}/report/vehicles`;
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +29,9 @@ export class VehicleService {
 
   updateVehicle(driver: IVehicle, id: number) {
     return this.http.put<ApiResponse<IVehicle>>(`${this.urlBase}/${id}`, driver);
+  }
+
+  report(): string {
+    return this.reportUrl;
   }
 }

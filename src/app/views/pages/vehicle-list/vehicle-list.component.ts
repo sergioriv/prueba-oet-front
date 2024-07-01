@@ -19,7 +19,9 @@ export class VehicleListComponent implements OnInit {
   title = "Vehículos";
   vehicles$!: Observable<ApiResponse<IVehicle[]>>;
   public errorMessage!: string;
-  constructor(private service: VehicleService) {}
+  constructor(
+    private service: VehicleService,
+  ) {}
 
   ngOnInit(): void {
     this.vehicles$ = this.service.getVehicleResult()
@@ -27,5 +29,9 @@ export class VehicleListComponent implements OnInit {
         this.errorMessage = error;
         return EMPTY;
       }));
+  }
+
+  reportDownload() {
+    window.location.href = this.service.report();
   }
 }
